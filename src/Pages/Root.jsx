@@ -1,10 +1,11 @@
+import { Link } from 'react-router-dom';
 import styles from './Root.module.css';
 
 export default function Root() {
   return (
     <>
       <div id={styles["sidebar"]}>
-        <h1>React Router Contacts</h1>
+        <h1>Express Trading International</h1>
         <div>
           <form id={styles["search-form"]} role="search">
             <input
@@ -24,10 +25,14 @@ export default function Root() {
         <nav>
           <ul>
             <li>
-              <a href={`/contacts/1`}>Your Name</a>
+              <Link to="/purchasing">
+                Purchasing
+              </Link>
             </li>
             <li>
-              <a href={`/contacts/2`}>Your Friend</a>
+              <Link to="/adjustments">
+                Adjustments
+              </Link>
             </li>
           </ul>
         </nav>

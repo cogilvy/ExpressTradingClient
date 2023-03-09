@@ -135,8 +135,8 @@ function Navbar() {
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar
-                  alt="Borat"
-                  src="https://thehill.com/wp-content/uploads/sites/2/2020/10/gettyimages-72515103_1.jpg"
+                  alt="avatar"
+                  src=""
                 />
               </IconButton>
             </Tooltip>

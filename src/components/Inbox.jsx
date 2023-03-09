@@ -1,4 +1,5 @@
-import * as React from "react";
+import { useState, useEffect } from "react";
+import * as emailAPI from "../utilities/email-api";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -20,6 +21,27 @@ const rows = [
 ];
 
 function Inbox() {
+  /*--- State --- */
+  const [emails, setEmails] = useState([]);
+  const [activeEmail, setActiveEmail] = useState(null);
+
+  /*--- Side Effects --- */
+  useEffect(function () {
+    // Load all emails
+    async function fetchEmails() {
+      const emails = await emailAPI.getAll();
+      setEmails(emails);
+      // If no emails, activeEmail will be set to null below
+      setActiveEmail(emails[0] || null);
+    }
+    // fetchEmails();
+  }, []);
+
+  /*--- Event Handlers --- */
+  function handleSelectEmail(email) {
+    setActiveEmail(email);
+  }
+
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
